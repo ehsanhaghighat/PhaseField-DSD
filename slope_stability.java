@@ -60,15 +60,8 @@ public class slope_stability {
          .set("table", new String[][]{{"0", "0.1[mm]"}, {"TMAX", "300[mm]"}, {"", ""}});
     model.component("comp1").func("int1").set("fununit", new String[]{"m"});
     model.component("comp1").func("int1").set("argunit", new String[]{"s"});
-    model.component("comp1").func("an3").label("d_init");
-    model.component("comp1").func("an3").set("funcname", "d_init");
-    model.component("comp1").func("an3").set("expr", "exp(-2*((x-0.02)^2 + (y-0.04)^2)/0.001^2)");
-    model.component("comp1").func("an3").set("args", new String[]{"x", "y"});
-    model.component("comp1").func("an3").set("argunit", new String[]{"", ""});
-    model.component("comp1").func("an3")
-         .set("plotargs", new String[][]{{"x", "0", "80 [mm]"}, {"y", "0", "170 [mm]"}});
     model.component("comp1").func("an4").label("Analytic E0");
-    model.component("comp1").func("an4").set("expr", "E0b*(1 - 0.2*exp(-((x-x0)^2 + (y-y0)^2)/0.000001))");
+    model.component("comp1").func("an4").set("expr", "E0b");
     model.component("comp1").func("an4").set("args", new String[]{"x", "y"});
     model.component("comp1").func("an4").set("argunit", new String[]{"", ""});
     model.component("comp1").func("an4")
@@ -112,7 +105,7 @@ public class slope_stability {
     model.component("comp1").variable().create("var6");
     model.component("comp1").variable("var6").set("x0", "B/2");
     model.component("comp1").variable("var6").set("y0", "H/2");
-    model.component("comp1").variable("var6").set("E0", "E0b*(1 + 0.2*exp(-((x-x0)^2 + (y-y0)^2)/(1 [mm])^2))");
+    model.component("comp1").variable("var6").set("E0", "E0b");
     model.component("comp1").variable("var6").set("K0", "E0/(3*(1-2*nu))");
     model.component("comp1").variable("var6").set("G0", "E0/(2*(1+nu))");
     model.component("comp1").variable("var6").set("L0", "K0 - 2*G0/3");
